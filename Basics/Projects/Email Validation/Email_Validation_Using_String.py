@@ -29,3 +29,7 @@ if len(email) > 6:
         print("First character must be an alphabet ❌")
 else:
     print("Email is too short ❌")
+
+
+# Dry Run the code through the ChatGPT url
+# https://chatgpt.com/c/67cf14b5-0fbc-8012-8e84-93bc7e0aae8e
