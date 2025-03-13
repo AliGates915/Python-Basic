@@ -3,6 +3,8 @@ import speech_recognition as sr
 import webbrowser
 import datetime
 import pyjokes
+import os 
+import random
 
 def txt_speech():
     recognizer = sr.Recognizer()
@@ -24,21 +26,38 @@ def txt_speech():
 def speech_txt(x):
     engine = pyttsx3.init()
     voices = engine.getProperty("voices")
-    engine.setProperty("voice", voices[1].id)  # Female voice
+    engine.setProperty("voice", voices[0].id)  # Female voice
     engine.setProperty('rate', 150)  # Adjust speed
     engine.say(x)
     engine.runAndWait()
 
 if __name__ == '__main__':
-    data = txt_speech()
 
-    if "your name" in data or "what is your name" in data:
-        name = "My name is Elon Musk, I am Billionaire from all over the world."
-        speech_txt(name)
+    while True:
+        data = txt_speech()
 
-
-    
-  # if txt_speech().lower() == "hey Ali":
-  #   print("test")
-  # else:
-  #   print("Thanks, But not recognize")
+        if "your name" in data or "what is your name" in data:
+            name = "My name is Elon Musk, I am Billionaire from all over the world."
+            speech_txt(name)
+        elif "old are you" in data:
+            age = "i am 23 years old"
+            speech_txt(age)
+        elif "now time" in data or "tell me now time" in data:
+            # I for hours, M for Minutes and p for am/pm
+            time = datetime.datetime.now().strftime("%I%M%p")
+            speech_txt(time)
+        elif "chat gpt"in data:
+            webbrowser.open("https://chatgpt.com/")
+        elif "joke"in data:
+            joke = pyjokes.get_joke(language="en", category='all')
+            print(joke)
+            speech_txt(joke)
+        elif "song" in  data:
+            add = r"A:\Songs\Songs\Arijit Singh\Songs"
+            listSong = os.listdir(add)
+            song = random.choice(listSong)
+            print(listSong)
+            os.startfile(os.path.join(add, song))
+        elif "exit" in data:
+            speech_txt("thank you, Mr. Ali")
+            break
