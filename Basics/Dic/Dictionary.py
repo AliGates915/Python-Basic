@@ -8,6 +8,7 @@ for c in word:
 
 print(d)
 
+# We use  
 person = {
   "name" : 'Ali',
   "age"  : 22
