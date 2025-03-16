@@ -8,10 +8,19 @@ for c in word:
 
 print(d)
 
-# get method automatically handle, where key is not in a dictionary.
-word = 'hello'
-d = dict()
-for c in word:
-   d[c] = d.get(c,0) + 1
+person = {
+  "name" : 'Ali',
+  "age"  : 22
+}
 
-print(d)
+print(person['name'])
+print(person['age'])
+
+
+# get method automatically handle, where key is not in a dictionary.
+# word = 'hello'
+# d = dict()
+# for c in word:
+#    d[c] = d.get(c,0) + 1
+
+# print(d)
